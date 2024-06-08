@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablero</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .fire {
+      width: 400px;
+      height: 400px;
+      border-radius: 999px;
+      overflow: hidden;
+      background-image: url('/fire.gif');
+      background-size: cover;
+      position: relative;
+    }
+
+    .mapache {
+      width: 400px;
+      height: 400px;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      animation: girar 30s linear infinite;
+      /* background-image: url('/fondo-porquito.png');
+      background-size: cover; */
+    }
+
+    .mapache img {
+      width: 150%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      /* animation: saltar .9s linear infinite; */
+      transition: all .2s ease-in-out;
+    }
+
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes saltar {
+      0% {
+        top: -32px;
+      }
+      50% {
+        top: 0px;
+      }
+      100% {
+        top: -32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div
+    id="root"
+    style="width: 100%; aspect-ratio: 1/1; height: 100%; position: relative;"
+  ></div>
+
+  <div class="fire">
+    <div class="mapache">
+      <img src="/porquito.png" alt="porquito">
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/",
+        "cannon": "https://github.com/pmndrs/cannon-es/blob/master/dist/cannon-es.js"
+      }
+    }
+  </script>
+
+  <script type="module" src="/js/app.js"></script>
+  
+</body>
+</html>
